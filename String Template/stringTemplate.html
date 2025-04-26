@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // String Template Tidak Perul +
+
+      const Name = "Wahyu Nugraha";
+      const Template = `Name : ${Name}`;
+      const nilai = 90;
+
+      console.info(Template);
+      const Template2 = `Name : ${Name}, Lulus : ${nilai > 70}`;
+      console.info(Template2);
+
+      const multiline = `Nama Saya Wahyu,
+      Suka Main Game,
+      Suka Dia.`;
+     
+      document.writeln("<pre>")
+      document.writeln(multiline);
+      document.writeln("</pre>")
+    </script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array</title>
+  </head>
+  <body>
+    <script>
+      const arrayKosong = [];
+
+      const arrayIsi = ["Wahyu Nugraha", "23", "Fresh Graduate"];
+
+      const names = [];
+      names.push("Wahyu");
+      names.push("Nugraha");
+      names.push("Fresh Graduate");
+      console.table(names);
+
+      delete names[2];
+
+      console.info(names);
+
+      names[2] = "Wut Wut Wut";
+      console.info(names);
+    </script>
+  </body>
+</html>
