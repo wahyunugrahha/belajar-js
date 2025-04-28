@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const person = {
+        firstName: " Wahyu",
+        umur: " 21",
+      };
+      if ("lastName" in person) {
+        alert(`Halo ${person.firstName}`);
+      } else {
+        alert("Object Tidak Ditemukan");
+      }
+
+      const arrayName = [null, "Wahyu", null];
+      const result = 0 in arrayName;
+      document.writeln(`<p>${result}</p>`);
+
+      /* Operator In, Hanya Mengecek isi dari Object atau Array
+      walaupun isi dari object atau array itu hanyalah Null atau undefined
+      */
+    </script>
+  </body>
+</html>
