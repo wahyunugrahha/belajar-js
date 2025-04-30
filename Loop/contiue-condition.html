@@ -7,13 +7,12 @@
   </head>
   <body>
     <script>
-      let i = 0;
-      do {
-        document.writeln(`<p>Hallo ke ${i}</p>`);
-        i++;
-      } while (i < 5);
-
-      //Do While paling tidak menjalankan kode sekali dulu baru loop, tidak dengan while biasa
+      for (let i = 1; i <= 100; i++) {
+        if (i % 2 === 0) {
+          continue;
+        }
+        document.writeln(`<p>ini adalah perulangan ganjil ke-${i}</p>`);
+      }
     </script>
   </body>
 </html>

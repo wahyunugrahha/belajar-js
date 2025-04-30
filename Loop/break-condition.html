@@ -8,12 +8,13 @@
   <body>
     <script>
       let i = 0;
-      do {
-        document.writeln(`<p>Hallo ke ${i}</p>`);
+      while (true) {
+        document.writeln(`<p>Ini adalah perulangan ke-${i}</p>`);
         i++;
-      } while (i < 5);
-
-      //Do While paling tidak menjalankan kode sekali dulu baru loop, tidak dengan while biasa
+        if (i > 10) {
+          break;
+        }
+      }
     </script>
   </body>
 </html>

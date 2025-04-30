@@ -17,11 +17,16 @@
       //     alert(`Halo Ke-${i}`);
       //     i++;
       //   }
-      
+
       // Atau
 
-      for (let i = 0; i <= 5; i++) {
-        document.writeln(`<p>Hello Ke-${i}</p>`);
+      const totalBaris = 5;
+      for (let i = 1; i <= totalBaris; i++) {
+        let angka = "";
+        for (let j = 1; j <= i; j++) {
+          angka += j + " ";
+        }
+        document.writeln(`<p>${angka}</p>`);
       }
     </script>
   </body>
