@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+        Operator Logika Non Boolean OR (||) akan dijalankan duluan selagi di Truthy
+        Jika Data sebelah kiri Falsy maka yang akan diambil adalah data di sebelah kanan yang truthy
+        Jika semua data falsy, makan data yang diambil adalah data falsy yang terakhir
+        Seperti :
+        Bukan Null
+        Bukan 0/-0
+        Bukan False
+        Bukan Undefined
+        Bukan "" (String Kosong)
+        */
+      console.info("" || "Ada Isi");
+      console.info(0 || "0");
+      console.info(null || 10);
+      console.info(null || "");
+
+      //Contoh Kasus
+
+      const person = {
+        firstName: "Wahyu",
+        lastName: "Nugraha",
+        middleName: "",
+      };
+
+      const name = person.firstName || person.lastName;
+      document.writeln(`<p>Hallo, ${name}</p>`);
+      const name2 = person.middleName || person.firstName; // yang diambil adalah data firstName karena middlename kosong
+      document.writeln(`<p>Hallo, ${name2}</p>`);
+
+      /* 
+        Operator Logika Non Boolean AND (&&) akan dijalankan duluan selagi di falsy (kebalikan or)
+        Jika Data sebelah kiri Falsy maka yang akan diambil adalah data di sebelah kiri 
+        Jika semua data truthy, makan data yang diambil adalah data truthy yang terakhir
+        */
+      console.info("" && "Ada Isi");
+      console.info(0 && "0");
+      console.info(null && 10);
+      console.info("tRUE" && "TRUE");
+    </script>
+  </body>
+</html>
