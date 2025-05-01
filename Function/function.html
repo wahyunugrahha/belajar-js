@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function sayHelloWorld() {
+        document.writeln("<p>Hello World</p>");
+      }
+      sayHelloWorld();
+
+      //Function Parameter
+      function name(firstName, lastName) {
+        document.writeln(`<p>${firstName} ${lastName}</p>`);
+      }
+
+      name("Wahyu", "Nugraha");
+      name("Bjir", "Nugraha");
+
+      //Function Return
+      function penjumlahanAngka(a, b) {
+        return a + b;
+      }
+      document.writeln(penjumlahanAngka(5, 10));
+
+      function cekGrade(a) {
+        if (a > 86) {
+          return "A";
+        } else if (a > 64) {
+          return "B";
+        } else if (a > 50) {
+          return "C";
+        } else {
+          return "Anda Tidak Lulus";
+        }
+      }
+      const nilai = 76;
+      document.writeln(`<p>Nilai Anda Adalah : ${cekGrade(nilai)}</p>`);
+    </script>
+  </body>
+</html>
