@@ -7,23 +7,29 @@
   </head>
   <body>
     <script>
-      //Scope
+      // Function `iniScope` dan `iniScope2` dideklarasikan di global scope,
+      // jadi bisa dipanggil dari mana saja dalam file/script ini.
+
       function iniScope() {
         document.writeln("Hello World");
       }
 
       function iniScope2() {
         document.writeln("Hello World 2");
+
+        // Function `innerScope` dideklarasikan di dalam `iniScope2`,
+        // jadi hanya bisa dipanggil dari dalam `iniScope2` saja.
         function innerScope() {
           document.writeln("Hello World Dalam Scope");
         }
-        //Functiom 0InnerScope hanya bisa dipanggil didalam fungsi iniScope2
-        //Sedangkan function iniScope2 dan iniScope bisa dipanggil dimana saja selagi masih di kelas scope.html
+
+        // Memanggil innerScope dari dalam function-nya sendiri (ini boleh).
+        innerScope();
       }
-      //contoh
-      iniScope();
-      iniScope2();
-      innerScope(); // ini tidak akan bisa dipanggil karena masih didalam iniScope2
+
+      iniScope(); // ✅ Berhasil dipanggil
+      iniScope2(); // ✅ Berhasil dipanggil, termasuk innerScope di dalamnya
+      innerScope(); // ❌ Error: innerScope is not defined (karena di luar scope-nya)
     </script>
   </body>
 </html>
