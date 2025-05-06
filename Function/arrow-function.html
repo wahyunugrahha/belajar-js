@@ -3,21 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Arrow Function Example</title>
   </head>
   <body>
     <script>
+      // Arrow Function dengan blok kode
       const arrowFunc = (name) => {
         const say = `Hello ${name}`;
         console.info(say);
       };
 
-      arrowFunc("Wahyu");
+      arrowFunc("Wahyu"); // Output: Hello Wahyu
 
-      //Arrow Function Tanpa Block
-
+      // Arrow Function tanpa blok kode (langsung return)
       const sumArrowFunc = (input1, input2) => input1 + input2;
-      console.info(sumArrowFunc(10, 10));
+      console.info(sumArrowFunc(10, 10)); // Output: 20
     </script>
   </body>
 </html>
