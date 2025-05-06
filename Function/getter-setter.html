@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Belajar Getter & Setter di JavaScript</title>
+  </head>
+  <body>
+    <script>
+      // Objek person memiliki firstName dan lastName
+      const person = {
+        firstName: "Wahyu",
+        lastName: "Nugraha",
+
+        // Getter: digunakan untuk mengakses properti 'fullName' seolah properti biasa
+        get fullName() {
+          return `${this.firstName} ${this.lastName}`;
+        },
+
+        // Setter: digunakan untuk mengubah 'firstName' dan 'lastName' secara bersamaan
+        set fullName(value) {
+          const array = value.split(" ");
+          this.firstName = array[0] || "";
+          this.lastName = array[1] || "";
+        },
+      };
+
+      // Mengakses nilai fullName menggunakan getter
+      console.info("Sebelum diubah:");
+      console.info(person.fullName); // Output: Wahyu Nugraha
+
+      // Mengubah nilai fullName menggunakan setter
+      person.fullName = "Anjay Mabar";
+
+      // Menampilkan nilai setelah diubah
+      console.info("Setelah diubah:");
+      console.info(person.fullName); // Output: Anjay Mabar
+    </script>
+  </body>
+</html>

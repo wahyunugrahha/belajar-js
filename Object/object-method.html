@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object Method</title>
+  </head>
+  <body>
+    <script>
+      // Object 'person' memiliki properti dan method
+      const person = {
+        name: "Wahyu",
+        nameInput: function (name) {
+          console.info(`${name}`);
+        },
+      };
+
+      // Memanggil method dari objek
+      const sayHello = person.nameInput("Halo Wahyu Nugraha"); // Output: Halo Wahyu Nugraha
+      console.info(`Hello ${person.name}`); // Output: Hello Wahyu
+    </script>
+  </body>
+</html>
