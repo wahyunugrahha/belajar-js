@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fitur Set</title>
+  </head>
+  <body>
+    <script>
+      // Membuat Set dengan elemen unik
+      const mySet = new Set([1, 2, 3, 2, 1]); // Duplikat akan otomatis diabaikan
+
+      // Menampilkan isi Set
+      console.log("Isi Set:", mySet); // Set(3) {1, 2, 3}
+
+      // Menambahkan elemen baru
+      mySet.add(4);
+      mySet.add(2); // Tidak akan ditambahkan karena sudah ada
+      console.log("Setelah add:", mySet); // Set(4) {1, 2, 3, 4}
+
+      // Mengecek apakah elemen ada
+      console.log("Apakah ada 3?", mySet.has(3)); // true
+      console.log("Apakah ada 5?", mySet.has(5)); // false
+
+      // Menghapus elemen
+      mySet.delete(1);
+      console.log("Setelah delete 1:", mySet); // Set(3) {2, 3, 4}
+
+      // Mendapatkan ukuran Set
+      console.log("Jumlah elemen:", mySet.size); // 3
+
+      // Iterasi Set
+      console.log("Iterasi dengan for...of:");
+      for (const value of mySet) {
+        console.log(value);
+      }
+
+      // Iterasi dengan forEach
+      console.log("Iterasi dengan forEach:");
+      mySet.forEach((value) => {
+        console.log(value);
+      });
+
+      // Menghapus semua elemen dari Set
+      mySet.clear();
+      console.log("Setelah clear:", mySet); // Set(0) {}
+    </script>
+  </body>
+</html>
