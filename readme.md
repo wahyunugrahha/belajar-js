@@ -19,3 +19,4 @@ Repository ini bertujuan untuk:
 
 ---
 
+Good Luck And Have Fun!
