@@ -7,14 +7,66 @@
   </head>
   <body>
     <script>
+      // Membuat Map baru untuk produk
       const productMap = new Map();
-      productMap.set(`Sepatu`, 500);
-      productMap.set(`Baju`, 200);
-      productMap.set(`Tas`, 300);
-      console.log(productMap);
+
+      // Menambahkan pasangan key-value
+      productMap.set("Sepatu", 500);
+      productMap.set("Baju", 200);
+      productMap.set("Tas", 300);
+
+      // Menampilkan seluruh isi Map
+      console.log("Isi productMap:", productMap);
+
+      // Mendapatkan nilai berdasarkan key
+      console.log("Harga Sepatu:", productMap.get("Sepatu")); // 500
+
+      // Mengecek apakah key tertentu ada
+      console.log("Apakah ada 'Baju'?", productMap.has("Baju")); // true
+      console.log("Apakah ada 'Topi'?", productMap.has("Topi")); // false
+
+      // Menghapus key tertentu
+      productMap.delete("Tas");
+      console.log("Setelah hapus 'Tas':", productMap);
+
+      // Menampilkan jumlah item di Map
+      console.log("Jumlah produk:", productMap.size); // 2
+
+      // Iterasi Map dengan for...of
+      console.log("Iterasi key dan value:");
+      for (const [key, value] of productMap) {
+        console.log(`${key} -> ${value}`);
+      }
+
+      // Membersihkan seluruh isi Map
+      productMap.clear();
+      console.log("Setelah clear:", productMap); // Map(0) {}
+
+      // Contoh Map lain
       const fiturMap = new Map();
-      fiturMap.set(`Name`, `Wahyu`);
-      console.log(fiturMap.get(`Name`));
+      fiturMap.set("Name", "Wahyu");
+      fiturMap.set("Role", "Developer");
+
+      // Mengakses nilai
+      console.log("Nama:", fiturMap.get("Name")); // Wahyu
+
+      // Menampilkan semua key
+      console.log("Keys:");
+      for (const key of fiturMap.keys()) {
+        console.log(key);
+      }
+
+      // Menampilkan semua value
+      console.log("Values:");
+      for (const value of fiturMap.values()) {
+        console.log(value);
+      }
+
+      // Menampilkan semua entry (key-value pair)
+      console.log("Entries:");
+      for (const entry of fiturMap.entries()) {
+        console.log(entry); // ['Name', 'Wahyu'], ...
+      }
     </script>
   </body>
 </html>
