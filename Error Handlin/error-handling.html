@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Error Handling Demo</title>
+  </head>
+  <body>
+    <h1>Error Handling di JavaScript</h1>
+    <p>Buka konsol browser (F12) untuk melihat hasilnya.</p>
+
+    <script>
+      // Contoh 1: throw error secara manual
+      try {
+        const price = 100;
+        const paid = 80;
+
+        if (paid < price) {
+          throw new Error("Pembayaran kurang!");
+        }
+
+        console.log("Pembayaran berhasil.");
+      } catch (error) {
+        console.error("Error tertangkap:", error.message);
+      } finally {
+        console.log("Transaksi selesai.");
+      }
+
+      console.log("---");
+
+      // Contoh 2: error tidak terjadi, hanya try dan finally dieksekusi
+      try {
+        console.log("Memulai proses...");
+        // Tidak ada error
+        console.log("Proses berjalan dengan baik.");
+      } catch (err) {
+        console.log("Error tertangkap:", err.message);
+      } finally {
+        console.log("Proses berakhir (finally).");
+      }
+
+      console.log("---");
+
+      // Contoh 3: error syntax ditangkap
+      try {
+        eval('alert("Halo);'); // error karena kutip tidak ditutup
+      } catch (err) {
+        console.error("Syntax Error:", err.message);
+      } finally {
+        console.log("Blok finally tetap berjalan walau syntax error.");
+      }
+    </script>
+  </body>
+</html>
