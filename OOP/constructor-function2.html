@@ -3,25 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Inheritance in Constructor Function</title>
   </head>
   <body>
     <script>
-
-        //Inheritence 
+      // Parent constructor
       function Employee(firstName) {
         this.firstName = firstName;
-        this.sayHello = function (name) {
-          console.log(`Hallo ${name}, Nama saya ${firstName}`);
-        };
-      }
-      function Manager(firstName, lastName) {
-        this.lastName = lastName;
-        Employee.call(this, firstName);
       }
 
+      // Method disimpan di prototype agar tidak duplikat
+      Employee.prototype.sayHello = function (name) {
+        console.log(`Hallo ${name}, Nama saya ${this.firstName}`);
+      };
+
+      // Child constructor
+      function Manager(firstName, lastName) {
+        // Inherit properti dari Employee (seperti this.firstName)
+        Employee.call(this, firstName);
+        this.lastName = lastName;
+      }
+
+      // Inherit method dari Employee.prototype
+      Manager.prototype = Object.create(Employee.prototype);
+
+      // Pastikan constructor Manager tetap benar
+      Manager.prototype.constructor = Manager;
+
+      // Tambahkan method khusus Manager
+      Manager.prototype.sayManager = function () {
+        console.log(`Saya Manager ${this.firstName} ${this.lastName}`);
+      };
+
+      // Buat instance Manager
       const Wahyu = new Manager("Wahyu", "Nugraha");
-      console.log(Wahyu);
+
+      // Mengakses method dari Employee dan Manager
+      Wahyu.sayHello("Budi"); // Hallo Budi, Nama saya Wahyu
+      Wahyu.sayManager(); // Saya Manager Wahyu Nugraha
     </script>
   </body>
 </html>
