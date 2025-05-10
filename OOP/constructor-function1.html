@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Person(firstName, lastName) {
+        (this.firstName = firstName),
+          (this.lastName = lastName),
+          (this.sayHello = function (name) {
+            console.log(`Hallo ${name}, Nama saya ${this.firstName}.`);
+          });
+      }
+      const budi = new Person("Budi","Budian");
+      console.log(budi);
+      budi.sayHello("Joko");
+    </script>
+  </body>
+</html>
