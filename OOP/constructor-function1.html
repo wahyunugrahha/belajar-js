@@ -3,20 +3,49 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Belajar Constructor Function & Prototype</title>
   </head>
   <body>
     <script>
+      /**
+       * Constructor Function: Blueprint untuk membuat object baru
+       * Menggunakan huruf kapital di awal nama function sebagai konvensi (Person)
+       */
       function Person(firstName, lastName) {
-        (this.firstName = firstName),
-          (this.lastName = lastName),
-          (this.sayHello = function (name) {
-            console.log(`Hallo ${name}, Nama saya ${this.firstName}.`);
-          });
+        this.firstName = firstName; // properti instance
+        this.lastName = lastName;
+
+        // Method ini akan dibuat ulang untuk setiap objek (kurang efisien)
+        this.sayHello = function (name) {
+          console.log(`Hallo ${name}, Nama saya ${this.firstName}.`);
+        };
       }
-      const budi = new Person("Budi","Budian");
-      console.log(budi);
-      budi.sayHello("Joko");
+
+      /**
+       * Menambahkan method ke prototype agar tidak duplikasi di tiap instance.
+       * Ini lebih efisien karena method disimpan di satu tempat yang sama.
+       */
+      Person.prototype.sayBye = function () {
+        console.info("Say Goodbye");
+      };
+
+      Person.prototype.run = function () {
+        console.info(`${this.firstName} is Running`);
+      };
+
+      // Membuat objek budi dari constructor function Person
+      const budi = new Person("Budi", "Budian");
+
+      // Memanggil method bawaan dan dari prototype
+      budi.sayHello("Joko"); // Hallo Joko, Nama saya Budi.
+      budi.sayBye(); // Say Goodbye
+      budi.run(); // Budi is Running
+
+      // Membuat objek asep dari constructor function Person
+      const asep = new Person("Asep", "Gaming");
+      asep.sayHello("Rina"); // Hallo Rina, Nama saya Asep.
+      asep.sayBye(); // Say Goodbye
+      asep.run(); // Asep is Running
     </script>
   </body>
 </html>
