@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Belajar Private Method</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * Class Person memiliki method say() yang akan memanggil method privat
+       * berdasarkan apakah parameter `name` diberikan atau tidak.
+       */
+      class Person {
+        // Method publik yang bisa diakses dari luar class
+        say(name) {
+          if (name) {
+            this.#sayWithName(name); // memanggil private method dengan parameter
+          } else {
+            this.#sayWithoutName(); // memanggil private method tanpa parameter
+          }
+        }
+
+        // Private method hanya bisa diakses dari dalam class
+        #sayWithName(name) {
+          console.info(`Hello ${name}`);
+        }
+
+        // Private method lainnya
+        #sayWithoutName() {
+          console.info(`Hello`);
+        }
+      }
+
+      // Membuat instance dari class Person
+      const orang = new Person();
+
+      // Memanggil method publik dengan nama
+      orang.say("Joko"); // Output: Hello Joko
+
+      // Memanggil method publik tanpa nama
+      orang.say(); // Output: Hello
+
+      // orang.#sayWithName("Joko"); ❌ Error: private method tidak bisa diakses langsung dari luar class
+    </script>
+  </body>
+</html>

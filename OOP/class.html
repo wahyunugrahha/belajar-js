@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Belajar Class ES6</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * ES6 Class: Blueprint untuk membuat object
+       * Memudahkan penulisan dibanding constructor function + prototype
+       */
+      class Person {
+        constructor(firstName, lastName) {
+          this.firstName = firstName; // properti instance
+          this.lastName = lastName;
+        }
+
+        // Method ini otomatis berada di prototype
+        sayHello(name) {
+          console.log(`Hallo ${name}, Nama saya ${this.firstName}.`);
+        }
+
+        sayBye() {
+          console.info("Say Goodbye");
+        }
+
+        run() {
+          console.info(`${this.firstName} is Running`);
+        }
+      }
+
+      // Membuat instance dari class Person
+      const budi = new Person("Budi", "Budian");
+      budi.sayHello("Joko"); // Hallo Joko, Nama saya Budi.
+      budi.sayBye(); // Say Goodbye
+      budi.run(); // Budi is Running
+
+      const asep = new Person("Asep", "Gaming");
+      asep.sayHello("Rina"); // Hallo Rina, Nama saya Asep.
+      asep.sayBye(); // Say Goodbye
+      asep.run(); // Asep is Running
+    </script>
+  </body>
+</html>

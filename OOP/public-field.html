@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Customer {
+        // Public fields
+        firstName;
+        lastName;
+        balance = 0; // langsung diinisialisasi dengan nilai default
+
+        constructor(firstName, lastName) {
+          this.firstName = firstName;
+          this.lastName = lastName;
+          // this.balance tidak perlu ditulis ulang karena sudah dideklarasi di atas
+        }
+
+        sayHello() {
+          console.log(`Hello, ${this.firstName} ${this.lastName}`);
+        }
+      }
+
+      const wahyu = new Customer("Wahyu", "Nugraha");
+      console.info(wahyu); // Akan menampilkan objek dengan properti publik
+    </script>
+  </body>
+</html>

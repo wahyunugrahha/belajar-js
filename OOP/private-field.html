@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Belajar Private Field</title>
+  </head>
+  <body>
+    <script>
+      // ES2022: Private Class Field menggunakan simbol #
+      class Counter {
+        // Private field hanya bisa diakses dari dalam class
+        #counter = 0;
+
+        // Method untuk menambah nilai counter
+        increment() {
+          this.#counter++; // hanya bisa diakses dari method dalam class
+        }
+
+        // Method untuk mengurangi nilai counter
+        decrement() {
+          this.#counter--;
+        }
+
+        // Method untuk mengambil nilai counter
+        get() {
+          return this.#counter;
+        }
+      }
+
+      // Membuat instance dari class Counter
+      const counter = new Counter();
+
+      // Melakukan beberapa operasi increment
+      counter.increment();
+      counter.increment();
+      counter.increment();
+      counter.increment();
+      counter.increment();
+
+      // Menampilkan nilai counter melalui method get()
+      console.info(counter.get()); // Output: 5
+
+      // console.log(counter.#counter); ❌ Ini akan error karena #counter adalah private
+    </script>
+  </body>
+</html>

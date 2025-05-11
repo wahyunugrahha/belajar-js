@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Belajar Getter & Setter</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * Class Person sebagai blueprint objek
+       */
+      class Person {
+        constructor(firstName, lastName) {
+          this.firstName = firstName;
+          this.lastName = lastName;
+        }
+
+        /**
+         * Getter: Method yang dipanggil seperti properti.
+         * Digunakan untuk mengakses data/properti dengan cara yang lebih elegan.
+         * Di sini, kita gabungkan firstName dan lastName.
+         */
+        get fullName() {
+          return `${this.firstName} ${this.lastName}`;
+        }
+
+        /**
+         * Setter: Method khusus untuk mengatur nilai properti.
+         * Di sini, kita menerima string "Nama Depan Nama Belakang",
+         * lalu membaginya menjadi dua bagian.
+         */
+        set fullName(value) {
+          const result = value.split(" ");
+          this.firstName = result[0] || "";
+          this.lastName = result[1] || "";
+        }
+      }
+
+      // Membuat objek baru dari class Person
+      const wahyu = new Person("Wahyu", "Nugraha");
+
+      // Menampilkan objek awal
+      console.info("Sebelum di-set:", wahyu);
+
+      // Menggunakan setter untuk mengubah nama lengkap
+      wahyu.fullName = "Asep Koploing";
+
+      // Menampilkan hasil perubahan objek
+      console.info("Setelah di-set:", wahyu);
+
+      // Mengakses getter seperti properti biasa
+      console.log("Full name:", wahyu.fullName); // Asep Koploing
+    </script>
+  </body>
+</html>
