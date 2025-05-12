@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Static Method Example</title>
+  </head>
+  <body>
+    <script>
+      // Membuat class MathUtil yang berisi method utilitas
+      class MathUtil {
+        // static method: hanya bisa dipanggil dari nama class, bukan dari instance
+        static sum(...numbers) {
+          let total = 0;
+
+          // Menggunakan loop untuk menjumlahkan seluruh angka
+          for (const number of numbers) {
+            total += number; 
+          }
+
+          return total;
+        }
+      }
+
+      // Memanggil static method langsung dari class, tanpa membuat instance
+      const result = MathUtil.sum(1, 1, 1, 1, 1);
+
+      // Menampilkan hasil penjumlahan
+      console.log(result); // Output: 5
+    </script>
+  </body>
+</html>

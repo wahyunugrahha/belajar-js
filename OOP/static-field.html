@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Static Field Example</title>
+  </head>
+  <body>
+    <script>
+      class Configuration {
+        // Static field: hanya bisa diakses dari class, bukan dari instance
+        static author = "Wahyu";
+        static version = 1.0;
+
+        // Method untuk menampilkan info (non-static)
+        showInfo() {
+          // console.log(Configuration.author); // bisa diakses melalui class
+          // console.log(this.author); // ⚠️ undefined, karena this mengacu ke instance
+          console.log(
+            `App by ${Configuration.author}, version ${Configuration.version}`
+          );
+        }
+      }
+
+      // Membuat instance dari class Configuration
+      const app = new Configuration();
+
+      console.log("Contoh akses static field:");
+      // console.log(app.author); // ⚠️ undefined, karena author adalah static field
+      console.log(Configuration.author); // ✅ "Wahyu"
+      console.log(Configuration.version); // ✅ 1.0
+
+      console.log("\nMengakses static field dari method instance:");
+      app.showInfo(); // App by Wahyu, version 1
+
+      // Contoh: mengubah nilai static field
+      Configuration.version = 2.0;
+      console.log("\nSetelah update version:");
+      app.showInfo(); // App by Wahyu, version 2
+    </script>
+  </body>
+</html>
