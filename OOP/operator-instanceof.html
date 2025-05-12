@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fitur Lengkap instanceof</title>
+  </head>
+  <body>
+    <script>
+      // 1. Inheritance Check
+      class Parent {}
+      class Child extends Parent {}
+
+      const anak = new Child();
+      console.log("1. Inheritance:");
+      console.log(anak instanceof Child); // true
+      console.log(anak instanceof Parent); // true
+      console.log(anak instanceof Object); // true
+
+      // 2. Bekerja dengan class bawaan
+      const teks = new String("Halo");
+      const arr = [1, 2, 3];
+      const now = new Date();
+
+      console.log("\n2. Built-in Objects:");
+      console.log(teks instanceof String); // true
+      console.log(arr instanceof Array); // true
+      console.log(now instanceof Date); // true
+      console.log(teks instanceof Object); // true, karena semua turunan dari Object
+
+      // 3. Tidak bekerja dengan primitive
+      console.log("\n3. Primitive types:");
+      console.log("text" instanceof String); // false
+      console.log(123 instanceof Number); // false
+      console.log(true instanceof Boolean); // false
+
+      // 4. Validasi parameter menggunakan instanceof
+      class Person {
+        constructor(name) {
+          this.name = name;
+        }
+      }
+
+      function greet(person) {
+        if (person instanceof Person) {
+          console.log(`Hello, ${person.name}`);
+        } else {
+          console.warn("⚠️  Bukan instance dari class Person");
+        }
+      }
+
+      console.log("\n4. Validasi parameter:");
+      const user1 = new Person("Wahyu");
+      greet(user1); // Valid
+      greet({ name: "Fake" }); // Invalid
+
+      // 5. Alternatif: Object.prototype.toString.call()
+      console.log("\n5. Alternatif dengan toString.call:");
+      console.log(Object.prototype.toString.call("hello")); // [object String]
+      console.log(Object.prototype.toString.call(123)); // [object Number]
+      console.log(Object.prototype.toString.call(true)); // [object Boolean]
+      console.log(Object.prototype.toString.call(arr)); // [object Array]
+    </script>
+  </body>
+</html>
